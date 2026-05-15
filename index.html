@@ -227,10 +227,7 @@
           <div class="project-tags">
             <span>Cisco Packet Tracer</span><span>VLANs</span><span>OSPF</span><span>DHCP</span><span>WLAN</span><span>FTP</span>
           </div>
-          <div class="project-actions">
-            <a href="#" class="btn-sm"><i class="ri-github-fill"></i> GitHub</a>
-            <a href="#" class="btn-sm btn-sm-ghost"><i class="ri-file-text-line"></i> Report</a>
-          </div>
+
         </div>
         <div class="project-card glass-card reveal">
           <div class="project-icon pink"><i class="ri-brain-line"></i></div>
@@ -239,10 +236,7 @@
           <div class="project-tags">
             <span>Python</span><span>Machine Learning</span><span>Signature Detection</span><span>Anomaly Detection</span><span>AI Agent</span>
           </div>
-          <div class="project-actions">
-            <a href="#" class="btn-sm"><i class="ri-github-fill"></i> GitHub</a>
-            <a href="#" class="btn-sm btn-sm-ghost"><i class="ri-live-line"></i> Live Demo</a>
-          </div>
+
         </div>
         <div class="project-card glass-card reveal">
           <div class="project-icon amber"><i class="ri-home-wifi-line"></i></div>
@@ -251,9 +245,7 @@
           <div class="project-tags">
             <span>LAN</span><span>Ubiquiti APs</span><span>VLAN Segmentation</span><span>Site Survey</span>
           </div>
-          <div class="project-actions">
-            <a href="#" class="btn-sm"><i class="ri-github-fill"></i> GitHub</a>
-          </div>
+
         </div>
         <div class="project-card glass-card reveal">
           <div class="project-icon"><i class="ri-phone-line"></i></div>
@@ -341,16 +333,18 @@
           </div>
         </div>
         <form class="contact-form glass-card" id="contactForm">
+          
           <div class="form-group">
-            <input type="text" id="form-name" placeholder="Your Name" required />
+            <input type="text" name="name" id="form-name" placeholder="Your Name" required />
           </div>
           <div class="form-group">
-            <input type="email" id="form-email" placeholder="Your Email" required />
+            <input type="email" name="email" id="form-email" placeholder="Your Email" required />
           </div>
           <div class="form-group">
-            <textarea id="form-message" rows="5" placeholder="Your Message" required></textarea>
+            <textarea name="message" id="form-message" rows="5" placeholder="Your Message" required></textarea>
           </div>
-          <button type="submit" class="btn-primary"><i class="ri-send-plane-fill"></i> Send Message</button>
+          <button type="submit" id="submit-btn" class="btn-primary"><i class="ri-send-plane-fill"></i> Send Message</button>
+          <div id="form-status" style="display: none; margin-top: 15px; text-align: center; font-size: 0.9rem;"></div>
         </form>
       </div>
     </div>
@@ -368,6 +362,6 @@
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
