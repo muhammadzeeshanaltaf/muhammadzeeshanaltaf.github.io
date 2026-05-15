@@ -447,19 +447,42 @@ function typeLoop() {
 setTimeout(typeLoop, 800);
 
 // ══════════════════════════════════════════
-// CONTACT FORM
+// CONTACT FORM (Mailto Fallback)
 // ══════════════════════════════════════════
-document.getElementById('contactForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.innerHTML = '<i class="ri-check-line"></i> Message Sent!';
-  btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-  setTimeout(() => {
-    btn.innerHTML = '<i class="ri-send-plane-fill"></i> Send Message';
-    btn.style.background = '';
-    e.target.reset();
-  }, 3000);
-});
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('form-status');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById('form-name').value;
+    const email = document.getElementById('form-email').value;
+    const message = document.getElementById('form-message').value;
+    
+    // Construct mailto link
+    const subject = encodeURIComponent(`New message from ${name} via Portfolio`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    
+    // Open default email client
+    window.location.href = `mailto:mzeealtaf@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Show UI feedback
+    const btn = e.target.querySelector('button');
+    const originalBtnHtml = btn.innerHTML;
+    const originalBtnBg = btn.style.background;
+    
+    btn.innerHTML = '<i class="ri-check-line"></i> Email Client Opened';
+    btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+    
+    setTimeout(() => {
+      btn.innerHTML = originalBtnHtml;
+      btn.style.background = originalBtnBg;
+      contactForm.reset();
+    }, 4000);
+  });
+}
 
 // ══════════════════════════════════════════
 // PROFILE PHOTO FALLBACK
